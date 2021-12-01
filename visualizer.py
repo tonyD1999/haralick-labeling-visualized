@@ -111,15 +111,15 @@ class HaralickVisualizer:
 
         cv2.imshow(title, image_to_display)
 
-        if self.output_dir is not None:
-            self._save_frame(image_to_display, state['step'], self.output_dir)
+        # if self.output_dir is not None:
+        #     self._save_frame(image_to_display, state['step'], self.output_dir)
 
-            # Handle the fact that if the labeling has finished you may want to
-            #  write the result many times s.t. the animation stops there a bit
-            n_frames = 1 if not state['finished'] else 40
-            for i in range(0, n_frames):
-                self._save_frame(image_to_display, state['step'] + i,
-                                 self.output_dir)
+        #     # Handle the fact that if the labeling has finished you may want to
+        #     #  write the result many times s.t. the animation stops there a bit
+        #     n_frames = 1 if not state['finished'] else 40
+        #     for i in range(0, n_frames):
+        #         self._save_frame(image_to_display, state['step'] + i,
+        #                          self.output_dir)
         cv2.waitKey(wait)
 
     @staticmethod
