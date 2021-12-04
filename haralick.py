@@ -16,8 +16,8 @@ def haralick_labeling(image: np.ndarray, display: bool = False) -> None:
     # Init the image assigning a distinct label to each fg pixel
     image[image > 0] = np.arange(1, np.sum(image > 0) + 1)
 
-    if display:
-        visualizer = HaralickVisualizer(index_image=image,
+    # if display:
+    visualizer = HaralickVisualizer(index_image=image,
                                         canvas_size=(512, 512),
                                         output_dir=Path('./output'))
 
@@ -60,11 +60,12 @@ def haralick_labeling(image: np.ndarray, display: bool = False) -> None:
                             image[r, c] = min(neighborhood)
                             changed = True
 
-                    if display:
-                        visualizer.display(state, title='Labeling...', wait=10)
+                        if display:
+                            visualizer.display(state, title='Labeling...', wait=10)
 
         if not changed:
             state['finished'] = True
             if display:
                 visualizer.display(state, title='RESULT', wait=0)
             break
+    visualizer.display(state, title='RESULT', wait=0)
