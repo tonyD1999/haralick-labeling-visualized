@@ -90,7 +90,7 @@ def ccl_4(image, display=False):
     state = {
         'iter': 0,
         'finished': False,
-        'mode': 'forward',
+        'mode': 'forward4',
         'pos': (0, 0),
         'step': 0
     }
@@ -123,7 +123,6 @@ def ccl_4(image, display=False):
             equil_relationship[key] = equil_relationship[key].union(equil_relationship[value])
         
     state['iter'] += 1
-    state['mode'] = 'forward'
     for i in range(1, len(image)-1):
         for j in range(1, len(image[i])-1):
             state['step'] += 1

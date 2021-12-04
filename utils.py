@@ -5,12 +5,14 @@ def neighborhood_idxs(image: np.ndarray, r: int, c: int, mode: str):
     """
     Get indexes of the current position neighbors
     """
-    assert mode in {'forward', 'reverse', 'search'}
+    assert mode in {'forward', 'reverse', 'search', 'forward4'}
 
     if mode == 'forward':
         offsets = [(0, -1), (-1, -1), (-1, 0), (-1, 1)]
     elif mode == 'search':
         offsets = [(0, -1), (-1, -1), (-1, 0), (-1, 1), (0, 1), (1, 0), (1, -1), (1, 1)]
+    elif mode == 'forward4':
+        offsets = [(0, -1), (-1, 0)]
     else:
         offsets = [(0, 1), (1, -1), (1, 0), (1, 1)]
 
@@ -29,7 +31,7 @@ def neighborhood_values(image: np.ndarray, r: int, c: int, mode: str):
     """
     Get values of pixels in the neighborhood of the current position
     """
-    assert mode in {'forward', 'reverse', 'search'}
+    assert mode in {'forward', 'reverse', 'search', 'forward4'}
 
     neighborhood = []
 
