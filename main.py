@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 from haralick import haralick_labeling
-from duc_algo import ccl, bfs, dfs
+from duc_algo import ccl_4, ccl_8, bfs, dfs
 import sys
 
 def main():
